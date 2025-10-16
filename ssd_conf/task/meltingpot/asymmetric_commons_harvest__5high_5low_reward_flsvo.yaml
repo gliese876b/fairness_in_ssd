@@ -1,0 +1,10 @@
+defaults:
+  - _self_
+
+max_steps: 1000
+fair_local_svo: True
+svo_weight: 0.02
+target_svos: [45, 45, 45, 45, 45, 45, 45, 45, 45, 45]
+svo_lambda: 0.9
+svo_gamma: 0.99
+social_drive_modifiers: [1, 1, 1, 1, 1, 1.5, 1.5, 1.5, 1.5, 1.5]

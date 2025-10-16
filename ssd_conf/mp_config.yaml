@@ -1,0 +1,9 @@
+defaults:
+  - experiment: mp_experiment
+  - algorithm: iql
+  - task: ???
+  - model: sequence
+  - model@critic_model: sequence
+  - _self_
+
+seed: 0

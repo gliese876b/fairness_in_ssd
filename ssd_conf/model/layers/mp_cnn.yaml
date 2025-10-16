@@ -1,0 +1,18 @@
+
+name: cnn
+
+mlp_num_cells: [64]
+mlp_layer_class: torch.nn.Linear
+mlp_activation_class: torch.nn.ReLU
+mlp_activation_kwargs: null
+mlp_norm_class: null
+mlp_norm_kwargs: null
+
+cnn_num_cells: [32, 128]
+cnn_kernel_sizes: [8, 11]
+cnn_strides: [8, 1]
+cnn_paddings: 0
+cnn_activation_class: torch.nn.ReLU
+cnn_activation_kwargs: null
+cnn_norm_class: null
+cnn_norm_kwargs: null

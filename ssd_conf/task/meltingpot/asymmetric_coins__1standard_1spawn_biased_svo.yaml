@@ -1,0 +1,9 @@
+defaults:
+  - _self_
+
+max_steps: 500
+social_value_orientation: True
+svo_weight: 0.004
+target_svos: [45, 45]
+svo_lambda: 0.9
+svo_gamma: 0.99

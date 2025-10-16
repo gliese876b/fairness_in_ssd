@@ -1,0 +1,10 @@
+defaults:
+  - _self_
+
+max_steps: 500
+fair_local_ia: True
+ia_alpha: 0.05
+ia_beta: 0.1
+ia_lambda: 0.9
+ia_gamma: 0.99
+social_drive_modifiers: [13.0, 8.0]

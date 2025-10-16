@@ -1,0 +1,6 @@
+[submodule "meltingpot"]
+	path = meltingpot
+	url = https://github.com/gliese876b/meltingpot.git
+[submodule "BenchMARL"]
+	path = BenchMARL
+	url = https://github.com/gliese876b/BenchMARL.git
