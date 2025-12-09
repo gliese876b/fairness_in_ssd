@@ -86,10 +86,10 @@ The suffix of the configuration file indicates the type of social incentive stru
 
 | Suffix | Full Name | Description |
 | :--- | :--- | :--- |
-| **IA** | Inequity Aversion | Agents are penalized for large differences in observed utility. |
-| **SVO** | Social Value Orientation | Agents incorporate the utility of the other agent into their own reward function. |
-| **flia** | Fair & Local IA | A local and fairness-aware version of Inequity Aversion. |
-| **flsvo** | Fair & Local SVO | A local and fairness-aware version of Social Value Orientation. |
+| **IA** | Inequity Aversion | see [https://proceedings.neurips.cc/paper/2018/file/7fea637fd6d02b8f0adf6f7dc36aed93-Paper.pdf](the paper) |
+| **SVO** | Social Value Orientation | see [https://www.ifaamas.org/Proceedings/aamas2020/pdfs/p869.pdf](the paper) |
+| **flia** | Fair & Local IA | Our proposed Fair&Local version of IA |
+| **flsvo** | Fair & Local SVO | Our proposed Fair&Local version of SVO |
 | **\_both\_coop** | Both Agents Cooperative | Both agents use the standard cooperative baseline reward structure. |
 
 ---
