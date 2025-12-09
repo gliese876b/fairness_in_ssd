@@ -16,7 +16,7 @@ To clone this repository and automatically initialize and fetch the contents of 
 
 ```bash
 # Clone the main repository, including all submodules recursively
-git clone --recurse-submodules [https://github.com/gliese876b/fairness_in_ssd.git](https://github.com/gliese876b/fairness_in_ssd.git)
+git clone --recurse-submodules https://github.com/gliese876b/fairness_in_ssd.git
 cd fairness_in_ssd
 ```
 
@@ -86,11 +86,10 @@ The suffix of the configuration file indicates the type of social incentive stru
 
 | Suffix | Full Name | Description |
 | :--- | :--- | :--- |
-| **IA** | Inequity Aversion | see [https://proceedings.neurips.cc/paper/2018/file/7fea637fd6d02b8f0adf6f7dc36aed93-Paper.pdf](the paper) |
-| **SVO** | Social Value Orientation | see [https://www.ifaamas.org/Proceedings/aamas2020/pdfs/p869.pdf](the paper) |
+| **IA** | Inequity Aversion | see [the paper](https://proceedings.neurips.cc/paper/2018/file/7fea637fd6d02b8f0adf6f7dc36aed93-Paper.pdf) |
+| **SVO** | Social Value Orientation | see [the paper](https://www.ifaamas.org/Proceedings/aamas2020/pdfs/p869.pdf) |
 | **flia** | Fair & Local IA | Our proposed Fair&Local version of IA |
 | **flsvo** | Fair & Local SVO | Our proposed Fair&Local version of SVO |
-| **\_both\_coop** | Both Agents Cooperative | Both agents use the standard cooperative baseline reward structure. |
 
 ---
 
@@ -98,13 +97,37 @@ The suffix of the configuration file indicates the type of social incentive stru
 
 The configurations listed below demonstrate the combination of **Asymmetry Type** and **Incentive Structure**. Files containing `default` refer to the **symmetric** version of the environment.
 
-| Asymmetry Type | Incentive Structure | Config File |
-| :--- | :--- | :--- |
-| **Symmetric** (Default) | Standard | `asymmetric_coins_default.yaml` |
-| **Symmetric** (Default) | Fair&Local IA (flia) | `asymmetric_coins_default_flia.yaml` |
-| **1 High-Reward, 1 Low-Reward** | Both Coop | `asymmetric_coins_1high_1low_reward_both_coop.yaml` |
-| **1 High-Reward, 1 Low-Reward** | Fair&Local IA (flia) | `asymmetric_coins_1high_1low_reward_flia.yaml` |
-| **1 High-Reward, 1 Low-Reward** | Inequity Aversion (IA) | `asymmetric_coins_1high_1low_reward_ia.yaml` |
-| **1 Standard, 1 Spawn-Biased** | Both Coop | `asymmetric_coins_1standard_1spawn_biased_both_coop.yaml` |
-| **1 Standard, 1 Spawn-Biased** | Fair&Local IA (flia) | `asymmetric_coins_1standard_1spawn_biased_flia.yaml` |
-| **1 Standard, 1 Spawn-Biased** | Social Value Orientation (SVO) | `asymmetric_coins_1standard_1spawn_biased_svo.yaml` |
+### 3. Environment Versions (from Config Files)
+
+The configurations below detail the specific combinations of **Asymmetry Type** and **Incentive Structure** used across the **Coins** and **Harvest** environments. Files containing `default` refer to the **symmetric** version of the environment.
+
+| Environment | Asymmetry Type | Incentive Structure | Config File |
+| :--- | :--- | :--- | :--- |
+| **Coins** | Symmetric (Default) | Standard | `asymmetric_coins_default.yaml` |
+| **Coins** | Symmetric (Default) | Fair&Local IA (flia) | `asymmetric_coins_default_flia.yaml` |
+| **Coins** | Symmetric (Default) | Fair&Local SVO (flsvo) | `asymmetric_coins_default_flsvo.yaml` |
+| **Coins** | Symmetric (Default) | Inequity Aversion (IA) | `asymmetric_coins_default_ia.yaml` |
+| **Coins** | Symmetric (Default) | Social Value Orientation (SVO) | `asymmetric_coins_default_svo.yaml` |
+| **Coins** | **1 High-Reward, 1 Low-Reward** | Standard | `asymmetric_coins_1high_1low_reward.yaml` |
+| **Coins** | **1 High-Reward, 1 Low-Reward** | Fair&Local IA (flia) | `asymmetric_coins_1high_1low_reward_flia.yaml` |
+| **Coins** | **1 High-Reward, 1 Low-Reward** | Fair&Local SVO (flsvo) | `asymmetric_coins_1high_1low_reward_flsvo.yaml` |
+| **Coins** | **1 High-Reward, 1 Low-Reward** | Inequity Aversion (IA) | `asymmetric_coins_1high_1low_reward_ia.yaml` |
+| **Coins** | **1 High-Reward, 1 Low-Reward** | Social Value Orientation (SVO) | `asymmetric_coins_1high_1low_reward_svo.yaml` |
+| **Coins** | **1 Standard, 1 Spawn-Biased** | Standard | `asymmetric_coins_1standard_1spawn_biased.yaml` |
+| **Coins** | **1 Standard, 1 Spawn-Biased** | Fair&Local IA (flia) | `asymmetric_coins_1standard_1spawn_biased_flia.yaml` |
+| **Coins** | **1 Standard, 1 Spawn-Biased** | Fair&Local SVO (flsvo) | `asymmetric_coins_1standard_1spawn_biased_flsvo.yaml` |
+| **Coins** | **1 Standard, 1 Spawn-Biased** | Inequity Aversion (IA) | `asymmetric_coins_1standard_1spawn_biased_ia.yaml` |
+| **Coins** | **1 Standard, 1 Spawn-Biased** | Social Value Orientation (SVO) | `asymmetric_coins_1standard_1spawn_biased_svo.yaml` |
+| **Harvest** | Symmetric (Default) | Standard | `asymmetric_commons_harvest_default.yaml` |
+| **Harvest** | Symmetric (Default) | Inequity Aversion (IA) | `asymmetric_commons_harvest_default_ia.yaml` |
+| **Harvest** | Symmetric (Default) | Social Value Orientation (SVO) | `asymmetric_commons_harvest_default_svo.yaml` |
+| **Harvest** | **5 High-Reward, 5 Low-Reward** | Standard | `asymmetric_commons_harvest_5high_5low_reward.yaml` |
+| **Harvest** | **5 High-Reward, 5 Low-Reward** | Fair&Local IA (flia) | `asymmetric_commons_harvest_5high_5low_reward_flia.yaml` |
+| **Harvest** | **5 High-Reward, 5 Low-Reward** | Fair&Local SVO (flsvo) | `asymmetric_commons_harvest_5high_5low_reward_flsvo.yaml` |
+| **Harvest** | **5 High-Reward, 5 Low-Reward** | Inequity Aversion (IA) | `asymmetric_commons_harvest_5high_5low_reward_ia.yaml` |
+| **Harvest** | **5 High-Reward, 5 Low-Reward** | Social Value Orientation (SVO) | `asymmetric_commons_harvest_5high_5low_reward_svo.yaml` |
+| **Harvest** | **5 Standard, 5 Wide-Zapper** | Standard | `asymmetric_commons_harvest_5standard_5wide_zapper.yaml` |
+| **Harvest** | **5 Standard, 5 Wide-Zapper** | Fair&Local IA (flia) | `asymmetric_commons_harvest_5standard_5wide_zapper_flia.yaml` |
+| **Harvest** | **5 Standard, 5 Wide-Zapper** | Fair&Local SVO (flsvo) | `asymmetric_commons_harvest_5standard_5wide_zapper_flsvo.yaml` |
+| **Harvest** | **5 Standard, 5 Wide-Zapper** | Inequity Aversion (IA) | `asymmetric_commons_harvest_5standard_5wide_zapper_ia.yaml` |
+| **Harvest** | **5 Standard, 5 Wide-Zapper** | Social Value Orientation (SVO) | `asymmetric_commons_harvest_5standard_5wide_zapper_svo.yaml` |
