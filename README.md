@@ -29,25 +29,24 @@ conda create -n bench_env python=3.11
 conda activate bench_env
 ```
 
-# 1. Install the 'meltingpot' submodule
+### Step 3: Install the 'meltingpot' submodule
 ```bash
 cd meltingpot
 pip install --editable .[dev]
 cd ..
 ```
 
-# 2. Install Core MARL Tools
+### Step 4: Install Core MARL Tools
 ```bash
 pip install torchrl
 ```
 
-# 3. Install the 'BenchMARL' submodule
-# The submodule is already cloned into the BenchMARL/ directory.
+### Step 5: Install the 'BenchMARL' submodule
 ```bash
 pip install -e BenchMARL
 ```
 
-# 4. Install Evaluation Tools
+### Step 6: Install Evaluation Tools
 ```bash
 pip install matplotlib
 pip install id-marl-eval
