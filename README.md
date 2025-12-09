@@ -1,14 +1,16 @@
-# ✨ Fairness in SSD: Consolidated MARL Environment Setup
+# Fairness over Equality
 
 This repository contains the primary code for "Fairness over Equality: Correcting Social Incentives in Asymmetric Sequential Social Dilemmas" and uses Git Submodules to manage key external dependencies: `meltingpot` and `BenchMARL`.
 
-## ⚙️ Prerequisites
+The repository introduces modified versions of environments from [`meltingpot`](https://github.com/google-deepmind/meltingpot) and utilizes Independent DQN implementation from [`BenchMARL`](https://github.com/facebookresearch/BenchMARL).
+
+## Prerequisites
 
 This installation guide relies on **Conda** for managing the Python environment. Please ensure Conda is installed on your system.
 
 ---
 
-## 💻 Installation Guide
+## Installation Guide
 
 ### Step 1: Clone the Main Repository and Submodules
 
@@ -67,12 +69,33 @@ python run_experiment.py -m task=meltingpot/asymmetric_commons_harvest_5high_5lo
 
 To change experiment settings, modify the necessary YAML files under `ssd_config` folder.
 
+## Fair&Local
 
-## 🌎 Environment Configurations and Versions
+Fair&Local versions of Inequity Aversion and Social Value Orientation are implemented in `fair_local_inequity_aversion.py` and `fair_local_social_value_orientation.py` wrappers, respectively. They include three modifications; (1) adjusting for agent potential, (2) agent-based weighting of social influence and (3) localizing social feedback.
+
+These modifications are implemented on the environment side as wrappers so that any RL algorithm can be employed for independent learning.
+
+## Environment Configurations and Versions
 
 Our experiments utilize two base environments, **Coins** and **Harvest**, each adapted to explore different forms of asymmetry. The specific reward function modifications (Incentive Structures) and agent types define each unique environment version.
 
-### 1. Agent Types
+### 1. Coins Environment
+
+The **Coins** environment involves two agents, red and blue. Coins of both colors spawn at a given rate.
+
+* **Goal & Reward:** Collecting any coin yields $+1$ reward.
+* **Dilemma:** Picking up the other agent’s coin (a "mismatch coin") penalizes that agent by $-2$.
+* **Cooperation:** A cooperative agent must avoid collecting mismatch coins to prevent penalizing the other agent.
+
+### 2. Harvest Environment
+
+The **Harvest** environment features 10 agents collecting apples, which are a shared resource.
+
+* **Goal & Reward:** Agents collect apples, each worth $+1$.
+* **Dilemma:** Apple regrowth depends on leaving nearby apples uncollected; over-harvesting depletes resources. This creates a dilemma where maximizing individual reward quickly undermines long-term group benefit.
+* **Abilities:** Agents can **zap** others with a beam, temporarily removing them from the environment for 25 steps, which introduces potential conflict.
+
+### 3. Agent Types
 
 The agent types used in the environments introduce specific asymmetries in rewards and/or abilities:
 
@@ -86,7 +109,7 @@ The agent types used in the environments introduce specific asymmetries in rewar
 
 ---
 
-### 2. Incentive Structures (Reward Function Suffixes)
+### 4. Incentive Structures (Reward Function Suffixes)
 
 The suffix of the configuration file indicates the type of social incentive structure applied to the agents' reward functions:
 
@@ -99,11 +122,11 @@ The suffix of the configuration file indicates the type of social incentive stru
 
 ---
 
-### 3. Environment Versions (Example Configurations)
+### 5. Environment Versions (Example Configurations)
 
 The configurations listed below demonstrate the combination of **Asymmetry Type** and **Incentive Structure**. Files containing `default` refer to the **symmetric** version of the environment.
 
-### 3. Environment Versions (from Config Files)
+### 6. Environment Versions (from Config Files)
 
 The configurations below detail the specific combinations of **Asymmetry Type** and **Incentive Structure** used across the **Coins** and **Harvest** environments. Files containing `default` refer to the **symmetric** version of the environment.
 
@@ -137,3 +160,10 @@ The configurations below detail the specific combinations of **Asymmetry Type** 
 | **Harvest** | **5 Standard, 5 Wide-Zapper** | Fair&Local SVO (flsvo) | `asymmetric_commons_harvest_5standard_5wide_zapper_flsvo.yaml` |
 | **Harvest** | **5 Standard, 5 Wide-Zapper** | Inequity Aversion (IA) | `asymmetric_commons_harvest_5standard_5wide_zapper_ia.yaml` |
 | **Harvest** | **5 Standard, 5 Wide-Zapper** | Social Value Orientation (SVO) | `asymmetric_commons_harvest_5standard_5wide_zapper_svo.yaml` |
+
+
+### 7. Custom environments
+
+A new version of existing environments can be formed by creating a new `py` file in `meltingpot/configs/substrates` folder.
+
+A completely new environment would also require its `lua` script to define its dynamics, under `meltingpot/lua/levels` folder.
