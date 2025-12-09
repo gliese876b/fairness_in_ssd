@@ -1,6 +1,6 @@
 # ✨ Fairness in SSD: Consolidated MARL Environment Setup
 
-This repository contains the primary code for "Fairness in SSD" and uses Git Submodules to manage key external dependencies: `meltingpot` and `BenchMARL`.
+This repository contains the primary code for "Fairness over Equality: Correcting Social Incentives in Asymmetric Sequential Social Dilemmas" and uses Git Submodules to manage key external dependencies: `meltingpot` and `BenchMARL`.
 
 ## ⚙️ Prerequisites
 
@@ -59,7 +59,13 @@ To train a single experiment on Coins environment without asymmetry run the scri
 python run_experiment.py -m task=meltingpot/asymmetric_coins__default seed=0
 ```
 
-To change experiment settings, modify the necessary YAML files under ssd_config folder.
+To train a single experiment of Fair&LocalSVO on Harvest with asymmetry in apple rewards run the script below.
+
+```bash
+python run_experiment.py -m task=meltingpot/asymmetric_commons_harvest_5high_5low_reward_flsvo seed=0
+```
+
+To change experiment settings, modify the necessary YAML files under `ssd_config` folder.
 
 
 ## 🌎 Environment Configurations and Versions
