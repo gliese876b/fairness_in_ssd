@@ -1,6 +1,6 @@
 # Fairness over Equality
 
-This repository contains the primary code for "Fairness over Equality: Correcting Social Incentives in Asymmetric Sequential Social Dilemmas" and uses Git Submodules to manage key external dependencies: `meltingpot` and `BenchMARL`.
+This repository contains the primary code for [`the paper`](https://dl.acm.org/doi/10.65109/CZPZ7833) named "Fairness over Equality: Correcting Social Incentives in Asymmetric Sequential Social Dilemmas" and uses Git Submodules to manage key external dependencies: `meltingpot` and `BenchMARL`.
 
 The repository introduces modified versions of environments from [`meltingpot`](https://github.com/google-deepmind/meltingpot) and utilizes Independent DQN implementation from [`BenchMARL`](https://github.com/facebookresearch/BenchMARL).
 
